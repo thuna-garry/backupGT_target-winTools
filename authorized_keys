@@ -1,0 +1,10 @@
+############################################################################
+# backup1.yyc.avmaxGroup.com
+############################################################################
+command="/home/gtBackupService/incommingBackups/backupGT.target    " ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDCX+81NRcbdInXWNtCrjeOxehOOq/ztAw6GLiakANHrvfHEZTPQYdBIKJaIrcsNTsgsZC/2AW3fpaj+UN9JDZO1V5nI11hwLoSLAJ7HDP3nQim5hZEYIfp/T9bdVs0gj4NVCobblhen5fxDCkCO2QqQE/YQwVdGti+VaAxLCvbvplIGAx99J1/oXhS/KfGUBmtHQWJlIWFyh9g1I3/cZaI7hPBjdV54mqwSloN/R6XT7137aMhVJkrLHnro7cYjmEi/DQC9q0jsWYjZqxBW89jSZ4O5kHVbao8N0sxDF3wS/bXtwIceiAIThy5ZwvOR4/QNYHCiYshTMUjLob9HVep backupGT@backup1.yyc.avmaxGroup.com
+
+############################################################################
+# backup2.yyc.avmaxgroup.com
+############################################################################
+command="/home/gtBackupService/incommingBackups/backupGT.target    " ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDQp169nXyXJsamdvqDYkD5IRZdLDc7IxrAMUt1nu3z3ehlhpI6jS3tYLgEdEeOFpYVsDZJKEEfG0xfy7gYuPMY+UDdjkots20M1sYJyOtveW37Lj8CQ9Ek3iQ+EyDnQM29sQt4vszXALuYO0b6labSDcjOkTZ4UkUmbhgSzHo8OT/92DzR4yXiTTDpDEYjDmvLlJSEtsJSUJ9GJTPnBncwHXjeh616LkqDuXf066b4I6v4mS5uz2+qR+kJGfoB5LfUik2L1GWb88EiSE0BnozuLZzdAig/RvqwrEKJYwo8kbQlR7cUjjAmrXYMmo3Y04p1T0OHkydmLXBf+2rDgfSp backupGT@backup2.yyc.avmaxgroup.com
+

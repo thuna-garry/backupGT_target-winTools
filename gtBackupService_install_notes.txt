@@ -1,0 +1,104 @@
+On Windows
+----------------------
+- run AvmaxBackupService_install.bat
+
+- copy the rsync.exe from
+    C:\Program Files\cwRsync\bin
+  to
+    C:\Program Files\ICW\bin
+
+- use the copSSH utilities to setup AvmaxBackupService as
+    a unix user account with permission to connect to
+    shell (and sftp) via PKA (ie public key)
+
+- install keys in /home/AvmaxBackupService/.ssh/authorized_keys
+  (create file if doesn't exist and be sure to use unix line endings)
+   
+- get backupGT_target software from github (thuna-garry) and put in
+  C:\Program Files\ICW\home\incommingBackups
+  
+- copy the appropriate examples from the example subdir and rename/edit 
+
+- if the module path you want to backup contains any spaces or other special
+  characters then create a symlink for the path and specify the symlink in
+  the target.modlist script
+  
+- test by running target.modlist from a bash shell
+
+
+############################################################################
+# backup3.yyc.avmaxGroup.com
+############################################################################
+command="/home/AvmaxBackupService/incommingBackups/backupGT.target    " ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDCX+81NRcbdInXWNtCrjeOxehOOq/ztAw6GLiakANHrvfHEZTPQYdBIKJaIrcsNTsgsZC/2AW3fpaj+UN9JDZO1V5nI11hwLoSLAJ7HDP3nQim5hZEYIfp/T9bdVs0gj4NVCobblhen5fxDCkCO2QqQE/YQwVdGti+VaAxLCvbvplIGAx99J1/oXhS/KfGUBmtHQWJlIWFyh9g1I3/cZaI7hPBjdV54mqwSloN/R6XT7137aMhVJkrLHnro7cYjmEi/DQC9q0jsWYjZqxBW89jSZ4O5kHVbao8N0sxDF3wS/bXtwIceiAIThy5ZwvOR4/QNYHCiYshTMUjLob9HVep backupGT@backup3.yyc.avmaxGroup.com
+
+############################################################################
+# backup4.yyc.avmaxgroup.com
+############################################################################
+command="/home/AvmaxBackupService/incommingBackups/backupGT.target    " ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDQp169nXyXJsamdvqDYkD5IRZdLDc7IxrAMUt1nu3z3ehlhpI6jS3tYLgEdEeOFpYVsDZJKEEfG0xfy7gYuPMY+UDdjkots20M1sYJyOtveW37Lj8CQ9Ek3iQ+EyDnQM29sQt4vszXALuYO0b6labSDcjOkTZ4UkUmbhgSzHo8OT/92DzR4yXiTTDpDEYjDmvLlJSEtsJSUJ9GJTPnBncwHXjeh616LkqDuXf066b4I6v4mS5uz2+qR+kJGfoB5LfUik2L1GWb88EiSE0BnozuLZzdAig/RvqwrEKJYwo8kbQlR7cUjjAmrXYMmo3Y04p1T0OHkydmLXBf+2rDgfSp backupGT@backup4.yyc.avmaxgroup.com
+
+
+
+
+
+
+############################################################################
+# backup3.yyc.avmaxGroup.com
+############################################################################
+command="/root/incommingBackups/backupGT.target    " ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDCX+81NRcbdInXWNtCrjeOxehOOq/ztAw6GLiakANHrvfHEZTPQYdBIKJaIrcsNTsgsZC/2AW3fpaj+UN9JDZO1V5nI11hwLoSLAJ7HDP3nQim5hZEYIfp/T9bdVs0gj4NVCobblhen5fxDCkCO2QqQE/YQwVdGti+VaAxLCvbvplIGAx99J1/oXhS/KfGUBmtHQWJlIWFyh9g1I3/cZaI7hPBjdV54mqwSloN/R6XT7137aMhVJkrLHnro7cYjmEi/DQC9q0jsWYjZqxBW89jSZ4O5kHVbao8N0sxDF3wS/bXtwIceiAIThy5ZwvOR4/QNYHCiYshTMUjLob9HVep backupGT@backup3.yyc.avmaxGroup.com
+
+############################################################################
+# backup4.yyc.avmaxgroup.com
+############################################################################
+command="/root/incommingBackups/backupGT.target    " ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDQp169nXyXJsamdvqDYkD5IRZdLDc7IxrAMUt1nu3z3ehlhpI6jS3tYLgEdEeOFpYVsDZJKEEfG0xfy7gYuPMY+UDdjkots20M1sYJyOtveW37Lj8CQ9Ek3iQ+EyDnQM29sQt4vszXALuYO0b6labSDcjOkTZ4UkUmbhgSzHo8OT/92DzR4yXiTTDpDEYjDmvLlJSEtsJSUJ9GJTPnBncwHXjeh616LkqDuXf066b4I6v4mS5uz2+qR+kJGfoB5LfUik2L1GWb88EiSE0BnozuLZzdAig/RvqwrEKJYwo8kbQlR7cUjjAmrXYMmo3Y04p1T0OHkydmLXBf+2rDgfSp backupGT@backup4.yyc.avmaxgroup.com
+
+
+mv incommingBackups/ incommingBackups.bak
+git clone git://github.com/thuna-garry/backupGT_target.git incommingBackups
+cd incommingBackups
+cp examples/target.modList.linux target.modList
+cp examples/target.conf.linux target.conf
+vi target.modList
+
+
+############################################################################
+# local modules
+############################################################################
+cat <<-EOF
+        root            auto=true method=rsync path=/root
+        etc             auto=true method=rsync path=/etc
+        usrLocalEtc     auto=true method=rsync path=/usr/local/etc
+EOF
+
+for mod in `ls /data/sambaFiles/workspace/files1.yul`; do
+    [ "$mod" = "Aircraft_Manuals" ] && continue
+    [ "$mod" = "fileDrop"         ] && continue
+    echo "workspace_$mod        auto=true method=rsync path=/data/sambaFiles/workspace/files1.yul/$mod"
+done
+for mod in `ls /data/sambaFiles/home`; do
+    echo "home_$mod     auto=true method=rsync path=/data/sambaFiles/home/$mod"
+done
+
+cat > ${PROC_PATH_PREFIX}.root <<"__EOF__"
+    module_rsync_init() {
+        crontab -l -u root > /root/crontab.save 2>/dev/null
+        return 0
+    }
+__EOF__
+
+
+
+
+
+SHELL=/bin/sh
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin
+#MAILTO=""
+
+#minute hour    mday    month   wday    command
+#====== ======= ======= ======= ======= ======================================
+2       */4     *       *       *       (cd /root/incommingBackups;     git pull) > /dev/null 2>&1
+                                                                                                                                      ~
+
+																																	  
+																																	  
+																																	 
+																																	 
