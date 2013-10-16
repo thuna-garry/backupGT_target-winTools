@@ -1,0 +1,33 @@
+On Windows
+----------------------
+- run backupGTservice_install.bat
+
+- copy the rsync.exe from
+    C:\Program Files\cwRsync\bin
+  to
+    C:\Program Files\ICW\bin
+
+- use the copSSH utilities to setup backupGTservice as
+    a unix user account with permission to connect to
+    shell (and sftp) via PKA (ie public key)
+
+- install keys in /home/backupGTservice/.ssh/authorized_keys
+  (create file if doesn't exist and be sure to use unix line endings)
+   
+- get backupGT_target software from github (thuna-garry) and put in
+  C:\Program Files\ICW\home\incommingBackups
+  
+- copy the appropriate examples from the example subdir and rename/edit 
+
+- if the module path you want to backup contains any spaces or other special
+  characters then create a symlink for the path and specify the symlink in
+  the target.modlist script
+  
+- test by running target.modlist from a bash shell
+
+
+############################################################################
+# backupN.companyName.tld
+############################################################################
+command="/home/backupGTservice/incommingBackups/backupGT.target    " ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDCX+81NRcbdInXWNtCrjeOxehOOq/ztAw6GLiakANHrvfHEZTPQYdBIKJaIrcsNTsgsZC/2AW3fpaj+UN9JDZO1V5nI11hwLoSLAJ7HDP3nQim5hZEYIfp/T9bdVs0gj4NVCobblhen5fxDCkCO2QqQE/YQwVdGti+VaAxLCvbvplIGAx99J1/oXhS/KfGUBmtHQWJlIWFyh9g1I3/cZaI7hPBjdV54mqwSloN/R6XT7137aMhVJkrLHnro7cYjmEi/DQC9q0jsWYjZqxBW89jSZ4O5kHVbao8N0sxDF3wS/bXtwIceiAIThy5ZwvOR4/QNYHCiYshTMUjLob9HVep backupGT@backupN.company.tld
+
